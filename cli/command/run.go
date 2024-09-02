@@ -19,7 +19,7 @@ import (
 
 var runHandler cli.ActionFunc = func(c *cli.Context) error {
 	log.Info("Starting kafka listener...")
-	sarama.Logger = syslog.New(log.StandardLogger().Out, "[Datamin Kafka trigger] ", syslog.LstdFlags)
+	sarama.Logger = syslog.New(log.StandardLogger().Out, "[Ylem Kafka trigger] ", syslog.LstdFlags)
 
 	cfg := config.Cfg()
 	apiCfg := cfg.API
@@ -43,7 +43,7 @@ var runHandler cli.ActionFunc = func(c *cli.Context) error {
 	for topicName, wfUuids := range topicMapping {
 		g := goka.DefineGroup(
 			goka.Group(kafkaCfg.ConsumerGroupName),
-			goka.Input(goka.Stream(topicName), new(codec.Bytes), callDataminApi(apiClient, wfUuids)),
+			goka.Input(goka.Stream(topicName), new(codec.Bytes), callYlemApi(apiClient, wfUuids)),
 		)
 
 		p, err := goka.NewProcessor(
@@ -73,7 +73,7 @@ var runHandler cli.ActionFunc = func(c *cli.Context) error {
 	return nil
 }
 
-func callDataminApi(apiClient workflows.Client, workflowUuids []string) goka.ProcessCallback {
+func callYlemApi(apiClient workflows.Client, workflowUuids []string) goka.ProcessCallback {
 	return func(ctx goka.Context, msg interface{}) {
 		log.Debugf("Message received, running the following pipelines: %v", workflowUuids)
 		defer func() {
@@ -123,9 +123,9 @@ func parseTopicMapping(raw string) (map[string][]string, error) {
 func getBaseUrlByEnv(env string) string {
 	switch env {
 	case "production":
-		return "https://api.datamin.io"
+		return "https://api.ylem.co"
 	case "test":
-		return "https://api-test.datamin.io"
+		return "https://api-test.ylem.co"
 	}
 
 	panic("unknown environment specified")
@@ -187,7 +187,7 @@ func kafkaVersionFromString(v string) sarama.KafkaVersion {
 
 var RunCommand = &cli.Command{
 	Name:        "run",
-	Description: "Run Datamin Kafka trigger",
-	Usage:       "Run Datamin Kafka trigger",
+	Description: "Run Ylem Kafka trigger",
+	Usage:       "Run Ylem Kafka trigger",
 	Action:      runHandler,
 }

@@ -1,12 +1,12 @@
 # Kafka trigger
-A CLI application for subscribing to Apache Kafka topics and triggering Datamin pipelines using messages as input in real-time streaming mode.
+A CLI application for subscribing to Apache Kafka topics and triggering Ylem pipelines using messages as input in real-time streaming mode.
 
-![GitHub branch check runs](https://img.shields.io/github/check-runs/datamin-io/kafka-trigger/main?color=green)
-![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/datamin-io/kafka-trigger?color=blue)
-<a href="https://github.com/datamin-io/kafka-trigger?tab=Apache-2.0-1-ov-file">![Static Badge](https://img.shields.io/badge/license-Apache%202.0-blue)</a>
-<a href="https://datamin.io" target="_blank">![Static Badge](https://img.shields.io/badge/website-datamin.io-blue)</a>
-<a href="https://docs.datamin.io" target="_blank">![Static Badge](https://img.shields.io/badge/documentation-docs.datamin.io-blue)</a>
-<a href="https://join.slack.com/t/datamincommunity/shared_invite/zt-2nawzl6h0-qqJ0j7Vx_AEHfnB45xJg2Q" target="_blank">![Static Badge](https://img.shields.io/badge/community-join%20Slack-blue)</a>
+![GitHub branch check runs](https://img.shields.io/github/check-runs/ylem-co/kafka-trigger/main?color=green)
+![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/ylem-co/kafka-trigger?color=black)
+<a href="https://github.com/ylem-co/kafka-trigger?tab=Apache-2.0-1-ov-file">![Static Badge](https://img.shields.io/badge/license-Apache%202.0-black)</a>
+<a href="https://ylem.co" target="_blank">![Static Badge](https://img.shields.io/badge/website-ylem.co-black)</a>
+<a href="https://docs.datamin.io" target="_blank">![Static Badge](https://img.shields.io/badge/documentation-docs.datamin.io-black)</a>
+<a href="https://join.slack.com/t/datamincommunity/shared_invite/zt-2nawzl6h0-qqJ0j7Vx_AEHfnB45xJg2Q" target="_blank">![Static Badge](https://img.shields.io/badge/community-join%20Slack-black)</a>
 
 ## How it works
 Kafka-trigger listens to Kafka topics and calls the [pipeline run endpoint](https://docs.datamin.io/datamin-api/api-endpoints#run-workflow) for each message, passing the message body as pipeline input.
@@ -18,14 +18,14 @@ Kafka-trigger is configured with environment variables.
 Besides the conventional way, the config variables can also be specified in the `.env` or `.env.local` file.
 
 Main variables:
-- **DTMN_KT_API_URL** - Datamin's API URL. If you use the cloud version of Datamin, it is https://api.datamin.io, othervise add URL of your custom Datamin API instance here.
+- **DTMN_KT_API_URL** - Ylem's API URL. If you use the cloud version of Ylem, it is https://api.ylem.co, othervise add URL of your custom Ylem API instance here.
 - **DTMN_KT_API_CLIENT_ID** — OAuth client ID.
 - **DTMN_KT_API_CLIENT_SECRET** — OAuth client secret.
 - **DTMN_KT_KAFKA_VERSION=3.1.0** — version of the Kafka server.
 - **DTMN_KT_KAFKA_BOOTSTRAP_SERVERS="127.0.0.1:9092"** — a comma-separated list of Kafka bootstrap servers.
 - **DTMN_KT_KAFKA_TOPIC_MAPPING="topic_1:pipeline_uuid_1,topic_1:pipeline_uuid_2,topic_2:pipeline_uuid_2"** — topic-to-pipeline mapping, a comma-separated list of `<topic name>:<pipeline uuid>` pairs.
 
-Other supported env variables are in the [.env.dist file](https://github.com/datamin-io/kafka-trigger/blob/main/.env.dist)
+Other supported env variables are in the [.env.dist file](https://github.com/ylem-co/kafka-trigger/blob/main/.env.dist)
 
 More information about how to obtain your OAuth credentials is in our [documentation](https://docs.datamin.io/datamin-api/oauth-clients)
 
@@ -35,7 +35,7 @@ More information about how to obtain your OAuth credentials is in our [documenta
 
 Let's call it `test_kafka_trigger`
 
-### 2. Create a new pipeline in Datamin
+### 2. Create a new pipeline in Ylem
 
 Let's create a simple pipeline that contains only two tasks: External_trigger and Aggregator.
 
@@ -56,7 +56,7 @@ The .env variables will look like this:
 ```
 DTMN_KT_API_CLIENT_ID=%%REPLACE_IT_WITH_YOUR_CLIENT_ID%%
 DTMN_KT_API_CLIENT_SECRET=%%REPLACE_IT_WITH_YOUR_CLIENT_SECRET%%
-DTMN_KT_API_URL=https://api.datamin.io
+DTMN_KT_API_URL=https://api.ylem.co
 DTMN_KT_KAFKA_BOOTSTRAP_SERVERS="host.docker.internal:9092"
 DTMN_KT_KAFKA_TOPIC_MAPPING="test_kafka_trigger:8feaae75-7234-4f2f-9e4e-0b491e4a4331"
 ```

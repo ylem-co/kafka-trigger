@@ -1,13 +1,13 @@
 services:
-  datamin_kafka_trigger:
+  ylem_kafka_trigger:
     env_file:
       - .env
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: datamin_kafka_trigger
+    container_name: ylem_kafka_trigger
     #networks:
-    #  - datamin_network
+    #  - ylem_network
     volumes:
       - .:/go/src/kafkatrigger
     working_dir: /go/src/kafkatrigger
@@ -17,5 +17,5 @@ services:
 # uncomment if you want to include the container to the existing network
 #networks:
 #  default:
-#    name: datamin_network
+#    name: ylem_network
 #    external: true
