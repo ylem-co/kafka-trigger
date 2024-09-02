@@ -39,11 +39,11 @@ Let's call it `test_kafka_trigger`
 
 Let's create a simple pipeline that contains only two tasks: External_trigger and Aggregator.
 
-<img width="1402" alt="Screenshot 2024-07-25 at 21 40 55" src="https://github.com/user-attachments/assets/0f20ce9b-cf7e-46fd-8159-b036400370d8">
+<img width="1402" alt="352275586-0f20ce9b-cf7e-46fd-8159-b036400370d8" src="https://github.com/user-attachments/assets/13415f4b-84ce-4279-b76a-86957c363e41">
 
 An Aggregator will just send what it receives as input from Kafka to the output.
 
-<img width="1294" alt="Screenshot 2024-07-25 at 21 41 05" src="https://github.com/user-attachments/assets/60c9d414-d2b9-4d74-810c-2766b08758de">
+<img width="1294" alt="352275653-60c9d414-d2b9-4d74-810c-2766b08758de" src="https://github.com/user-attachments/assets/065d327e-75ac-45b9-92d1-d04ed3324bb3">
 
 ### 3. Configure the Kafka trigger service
 
@@ -67,24 +67,20 @@ DTMN_KT_KAFKA_TOPIC_MAPPING="test_kafka_trigger:8feaae75-7234-4f2f-9e4e-0b491e4a
 
 If everything goes well, the service will be able to subscribe to your newly created topic and in the CLI output it will print something like that:
 
-<img width="917" alt="Screenshot 2024-07-25 at 22 12 54" src="https://github.com/user-attachments/assets/650be831-8157-4b7b-9a87-6045be661f60">
+<img width="917" alt="352276443-650be831-8157-4b7b-9a87-6045be661f60" src="https://github.com/user-attachments/assets/38e7d755-4de1-4339-8dc5-fcbc94612d44">
 
 ### 5. Produce the new message
 
 If you now produce a simple new message to the topic:
 
-<img width="441" alt="Screenshot 2024-07-25 at 22 14 15" src="https://github.com/user-attachments/assets/946128fd-3a50-4aeb-929d-7e7d5e7a32bb">
+<img width="441" alt="352276803-946128fd-3a50-4aeb-929d-7e7d5e7a32bb" src="https://github.com/user-attachments/assets/514aefcc-e7c2-4034-9567-1dfff13f6ddc">
 
 You will see in the CLI that Kafka trigger successfully consumed it and triggered the pipeline:
 
-
-<img width="1180" alt="Screenshot 2024-07-25 at 22 15 21" src="https://github.com/user-attachments/assets/0774515f-134d-4961-83eb-d5533c39fe37">
-
+<img width="1180" alt="352277102-0774515f-134d-4961-83eb-d5533c39fe37" src="https://github.com/user-attachments/assets/6b2c3aca-3f5d-4db3-b66d-12f91b0b45bd">
 
 And the pipeline logs also contain a new item stating that pipeline was successfully executed and each of two tasks returned a correct output:
 
-<img width="1335" alt="Screenshot 2024-07-25 at 21 48 22" src="https://github.com/user-attachments/assets/4d092760-821b-4cd1-930e-39361a7c6d9f">
+<img width="1335" alt="352277352-4d092760-821b-4cd1-930e-39361a7c6d9f" src="https://github.com/user-attachments/assets/ee7305b8-da8f-4b51-9376-90c0e4000238">
 
-<img width="1330" alt="Screenshot 2024-07-25 at 21 48 32" src="https://github.com/user-attachments/assets/dca0ed64-6aa9-4e55-b379-3d4b6907c7f0">
-
-
+<img width="1330" alt="352277402-dca0ed64-6aa9-4e55-b379-3d4b6907c7f0" src="https://github.com/user-attachments/assets/d197e86c-13e1-4b2d-a36d-b733ece4f580">
