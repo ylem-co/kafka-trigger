@@ -18,12 +18,12 @@ Kafka-trigger is configured with environment variables.
 Besides the conventional way, the config variables can also be specified in the `.env` or `.env.local` file.
 
 Main variables:
-- **DTMN_KT_API_URL** - Ylem's API URL. If you use the cloud version of Ylem, it is https://api.ylem.co, othervise add URL of your custom Ylem API instance here.
-- **DTMN_KT_API_CLIENT_ID** — OAuth client ID.
-- **DTMN_KT_API_CLIENT_SECRET** — OAuth client secret.
-- **DTMN_KT_KAFKA_VERSION=3.1.0** — version of the Kafka server.
-- **DTMN_KT_KAFKA_BOOTSTRAP_SERVERS="127.0.0.1:9092"** — a comma-separated list of Kafka bootstrap servers.
-- **DTMN_KT_KAFKA_TOPIC_MAPPING="topic_1:pipeline_uuid_1,topic_1:pipeline_uuid_2,topic_2:pipeline_uuid_2"** — topic-to-pipeline mapping, a comma-separated list of `<topic name>:<pipeline uuid>` pairs.
+- **YLEM_KT_API_URL** - Ylem's API URL. If you use the cloud version of Ylem, it is https://api.ylem.co, othervise add URL of your custom Ylem API instance here.
+- **YLEM_KT_API_CLIENT_ID** — OAuth client ID.
+- **YLEM_KT_API_CLIENT_SECRET** — OAuth client secret.
+- **YLEM_KT_KAFKA_VERSION=3.1.0** — version of the Kafka server.
+- **YLEM_KT_KAFKA_BOOTSTRAP_SERVERS="127.0.0.1:9092"** — a comma-separated list of Kafka bootstrap servers.
+- **YLEM_KT_KAFKA_TOPIC_MAPPING="topic_1:pipeline_uuid_1,topic_1:pipeline_uuid_2,topic_2:pipeline_uuid_2"** — topic-to-pipeline mapping, a comma-separated list of `<topic name>:<pipeline uuid>` pairs.
 
 Other supported env variables are in the [.env.dist file](https://github.com/ylem-co/kafka-trigger/blob/main/.env.dist)
 
@@ -54,11 +54,11 @@ Let's assume, you run this application in a Docker container, with your Kafka se
 The .env variables will look like this:
 
 ```
-DTMN_KT_API_CLIENT_ID=%%REPLACE_IT_WITH_YOUR_CLIENT_ID%%
-DTMN_KT_API_CLIENT_SECRET=%%REPLACE_IT_WITH_YOUR_CLIENT_SECRET%%
-DTMN_KT_API_URL=https://api.ylem.co
-DTMN_KT_KAFKA_BOOTSTRAP_SERVERS="host.docker.internal:9092"
-DTMN_KT_KAFKA_TOPIC_MAPPING="test_kafka_trigger:8feaae75-7234-4f2f-9e4e-0b491e4a4331"
+YLEM_KT_API_CLIENT_ID=%%REPLACE_IT_WITH_YOUR_CLIENT_ID%%
+YLEM_KT_API_CLIENT_SECRET=%%REPLACE_IT_WITH_YOUR_CLIENT_SECRET%%
+YLEM_KT_API_URL=https://api.ylem.co
+YLEM_KT_KAFKA_BOOTSTRAP_SERVERS="host.docker.internal:9092"
+YLEM_KT_KAFKA_TOPIC_MAPPING="test_kafka_trigger:8feaae75-7234-4f2f-9e4e-0b491e4a4331"
 ```
 
 ### 4. Run the container

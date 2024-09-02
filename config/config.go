@@ -20,7 +20,7 @@ type kafka struct {
 	BootstrapServers  []string `split_words:"true" default:"127.0.0.1:9092"`
 	ConsumerGroupName string   `split_words:"true" default:"ylem_kafka_trigger"`
 
-	// example: DTMN_KT_KAFKA_TOPIC_MAPPING="topic_name:workflow_uuid_1,topic_name:workflow_uuid_2"
+	// example: YLEM_KT_KAFKA_TOPIC_MAPPING="topic_name:workflow_uuid_1,topic_name:workflow_uuid_2"
 	TopicMapping string `split_words:"true"`
 	TLS          tls
 	SASL         sasl
@@ -102,7 +102,7 @@ func new() config {
 	godotenv.Load(".env.local")
 	godotenv.Load()
 	var c config
-	err := envconfig.Process("DTMN_KT", &c)
+	err := envconfig.Process("YLEM_KT", &c)
 	if err != nil {
 		log.Fatal(err.Error())
 	}
