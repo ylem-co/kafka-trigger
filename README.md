@@ -5,11 +5,11 @@ A CLI application for subscribing to Apache Kafka topics and triggering Ylem pip
 ![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/ylem-co/kafka-trigger?color=black)
 <a href="https://github.com/ylem-co/kafka-trigger?tab=Apache-2.0-1-ov-file">![Static Badge](https://img.shields.io/badge/license-Apache%202.0-black)</a>
 <a href="https://ylem.co" target="_blank">![Static Badge](https://img.shields.io/badge/website-ylem.co-black)</a>
-<a href="https://docs.datamin.io" target="_blank">![Static Badge](https://img.shields.io/badge/documentation-docs.datamin.io-black)</a>
+<a href="https://docs.ylem.co" target="_blank">![Static Badge](https://img.shields.io/badge/documentation-docs.ylem.co-black)</a>
 <a href="https://join.slack.com/t/ylem-co/shared_invite/zt-2nawzl6h0-qqJ0j7Vx_AEHfnB45xJg2Q" target="_blank">![Static Badge](https://img.shields.io/badge/community-join%20Slack-black)</a>
 
 ## How it works
-Kafka-trigger listens to Kafka topics and calls the [pipeline run endpoint](https://docs.datamin.io/datamin-api/api-endpoints#run-workflow) for each message, passing the message body as pipeline input.
+Kafka-trigger listens to Kafka topics and calls the [pipeline run endpoint](https://docs.ylem.co/datamin-api/api-endpoints#run-workflow) for each message, passing the message body as pipeline input.
 
 In the pipeline, the input can be received by the task "External trigger". When the pipeline is run, this task gets the input data and passes it further to the next pipeline task.
 
@@ -27,7 +27,7 @@ Main variables:
 
 Other supported env variables are in the [.env.dist file](https://github.com/ylem-co/kafka-trigger/blob/main/.env.dist)
 
-More information about how to obtain your OAuth credentials is in our [documentation](https://docs.datamin.io/datamin-api/oauth-clients)
+More information about how to obtain your OAuth credentials is in our [documentation](https://docs.ylem.co/datamin-api/oauth-clients)
 
 ## Usage
 
