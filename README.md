@@ -18,7 +18,7 @@ Kafka-trigger is configured with environment variables.
 Besides the conventional way, the config variables can also be specified in the `.env` or `.env.local` file.
 
 Main variables:
-- **YLEM_KT_API_URL** - Ylem's API URL. If you use the cloud version of Ylem, it is https://api.ylem.co, othervise add URL of your custom Ylem API instance here.
+- **YLEM_KT_API_URL** - Ylem's API URL. If you use the cloud version of Ylem, it is https://api.ylem.co, othervise add URL of your custom Ylem API instance here. If you run the open-source version of Ylem in a docker container, it is http://host.docker.internal:7339.
 - **YLEM_KT_API_CLIENT_ID** — OAuth client ID.
 - **YLEM_KT_API_CLIENT_SECRET** — OAuth client secret.
 - **YLEM_KT_KAFKA_VERSION=3.1.0** — version of the Kafka server.
@@ -63,7 +63,7 @@ YLEM_KT_KAFKA_TOPIC_MAPPING="test_kafka_trigger:8feaae75-7234-4f2f-9e4e-0b491e4a
 
 ### 4. Run the container
 
-`docker-compose up --build`
+`docker compose up --build`
 
 If everything goes well, the service will be able to subscribe to your newly created topic and in the CLI output it will print something like that:
 
